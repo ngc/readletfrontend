@@ -101,3 +101,16 @@ iframe {
     -moz-border-radius: 10px;
     border-radius: 10px;
   }
+
+  #root {
+    transition: all var(--transition-time-fast) var(--timing-f);
+    filter: none;
+  }
+  
+  body.ReactModal__Body--open > #root {
+    filter: blur(4px);
+  }
+  
+  body.ReactModal__Body--before-close > #root {
+    filter: none;
+  }
