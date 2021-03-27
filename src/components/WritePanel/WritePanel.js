@@ -40,6 +40,7 @@ class WritePanel extends Component{
               style={{
                 background: this.state.theme.foreground,
               }}
+              maxLength="20000"
             type="text" value={this.state.value} onChange={this.handleChange}/>
           </div>
           <div className="column">       
