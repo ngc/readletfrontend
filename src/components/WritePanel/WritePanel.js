@@ -25,7 +25,7 @@ class WritePanel extends Component{
       async shakeCopy() {
         document.getElementById("copy-text").innerHTML = "copied!"
         await new Promise(r => setTimeout(r, 2000));
-        document.getElementById("copy-text").innerHTML = "copy text"
+        document.getElementById("copy-text").innerHTML = "copy as html"
       }
       
       render() {
