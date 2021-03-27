@@ -27,7 +27,8 @@ class App extends Component{
 
       {'name': 'kinetic', 'foreground': '#FEB5AE', 'background': '#A3261A'}, 
       {'name': 'darq', 'foreground': '#D6D6D6', 'background': '#1F1F1F'}, 
-      {'name': 'cadet', 'foreground': '#888dfc', 'background': '#3B3D66'},
+      {'name': 'gruvbox', 'foreground': '#d79921', 'background': '#282828'},
+      {'name': 'airport', 'foreground': '#E2ECF4', 'background': '#070C0F'},
       ],
       modalIsOpen: false,
     };
@@ -74,11 +75,7 @@ class App extends Component{
     for(var i = 0; i < Math.ceil(this.state.themes.length / 4); i++){
       var temp = [];
       for(const [index, value] of this.state.themes.slice(i * 4).entries()){
-        if(value.name != this.state.theme.name){
-          temp.push(<div className="theme-column"><ThemeButton state={value} onClick={() => this.changeTheme(value)}/></div>)
-        }else{
-          temp.push(<a></a>);
-        }
+        temp.push(<div className="theme-column"><ThemeButton state={value} onClick={() => this.changeTheme(value)}/></div>)
       }
       themesButtons.push(<div className="theme-row">{temp[0]}{temp[1]}{temp[2]}{temp[3]}</div>);
     }
@@ -102,7 +99,7 @@ class App extends Component{
       right: '29%',
       bottom: '30%',
       border: 'none',
-      background: this.state.theme.background,
+      background: this.adjust(this.state.theme.background, -10),
       overflow: 'auto',
       WebkitOverflowScrolling: 'touch',
       borderRadius: '4px',
