@@ -33,8 +33,11 @@ class App extends Component{
     };
   }
 
-  setModalIsOpen(input){
+  async setModalIsOpen(input){
     this.setState({modalIsOpen: input});
+    if(input) document.getElementsByClassName("footer")[0].style.display = "none";
+    await new Promise(r => setTimeout(r, 1250));
+    if(input === false) document.getElementsByClassName("footer")[0].style.display = "block";
   }
 
   changeTheme(theme){

@@ -72,6 +72,7 @@ iframe {
   left: 0;
   padding: 1rem;
   text-align: center;
+  display: auto;
 }
 
 .footer a{
@@ -103,14 +104,18 @@ iframe {
   }
 
   #root {
-    transition: all var(--transition-time-fast) var(--timing-f);
+    transition: 1s filter linear;
+    -webkit-transition: 1s -webkit-filter linear;
+    -moz-transition: 1s -moz-filter linear;
+    -ms-transition: 1s -ms-filter linear;
+    -o-transition: 1s -o-filter linear;
     filter: none;
   }
   
   body.ReactModal__Body--open > #root {
     filter: blur(4px);
   }
-  
+
   body.ReactModal__Body--before-close > #root {
     filter: none;
   }
