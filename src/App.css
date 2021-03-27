@@ -1,38 +1,103 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&family=Source+Sans+Pro:wght@300&display=swap');
+html,body { height:90%; }
+
+body {
+  background-color: #253746;
+  text-align: center;  
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.App{
+  height: 100%;
+}
+.appTitle{
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 100px;
+  color: #B9D9EB;
+  line-height: 80%;
+}
+
+.modalTitle{
+  padding-top: 10px;
+  margin-bottom: 0;
+  text-emphasis-style: none;
+  font-size: 50px;
+  color: #B9D9EB;
+  line-height: 80%;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+iframe {
+  overflow-x:hidden;
+  overflow-y:hidden;
+}
+
+.appSubtitle{
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-size: 12px;
+  color: #B9D9EB;
+}
+
+
+.theme-column{
+  float: left;
+  width: 25%;
+}
+
+.theme-row{
+  margin-top: 10pt;
+}
+
+.theme-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  height: 100%;
+}
+
+.footer{
+  font-size: 125%;
+  color: #B9D9EB;
+  font-family: 'Roboto Mono', monospace;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.footer a{
+  cursor: pointer;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+
+.viewer{
+  --scroll-track: #819DAC;
+  --scroll-thumb: #456A88;
+}
+
+  /* width */
+  .viewer::-webkit-scrollbar {
+    width: 10px;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  
+  /* Track */
+  .viewer::-webkit-scrollbar-track {
+    background: var(--scroll-track);
   }
-  to {
-    transform: rotate(360deg);
+  
+  /* Handle */
+  .viewer::-webkit-scrollbar-thumb {
+    background: var(--scroll-thumb);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
   }
-}
