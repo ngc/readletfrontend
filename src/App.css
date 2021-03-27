@@ -70,6 +70,8 @@ iframe {
   right: 0;
   bottom: 0;
   left: 0;
+  opacity:1;
+  transition:opacity 1s linear !important;
   padding: 1rem;
   text-align: center;
   display: auto;
