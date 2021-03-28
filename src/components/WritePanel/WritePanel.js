@@ -12,7 +12,7 @@ class WritePanel extends Component{
 
     constructor(props) {
         super(props);
-        this.state = {value: '# Hello!\n\nThis is a bit of a sample text.\n\nErase me and write your own!',
+        this.state = {value: '# Hello!\n\nThis is a bit of a sample text.\n\nErase me and write your own!\n\n',
                       theme:  props.theme};
         this.handleChange = this.handleChange.bind(this);
       }

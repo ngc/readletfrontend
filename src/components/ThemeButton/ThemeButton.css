@@ -18,3 +18,37 @@
     padding-bottom: 0;
     font-size: 15pt;
 }
+
+
+.theme-column{
+    float: left;
+    width: 25%;
+  }
+  
+  .theme-row{
+    margin-top: 10pt;
+  }
+  
+  .theme-row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  @media only screen and (max-width: 1800px) {
+    .theme-column{
+        width: 100%;
+      }
+      
+      .button{
+          width: 85%;
+      }
+      
+      .theme-row:after {
+        content: unset;
+        display: unset;
+        clear: unset;
+      }
+  }
+  
+  

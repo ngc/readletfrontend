@@ -45,22 +45,6 @@ iframe {
   color: #B9D9EB;
 }
 
-
-.theme-column{
-  float: left;
-  width: 25%;
-}
-
-.theme-row{
-  margin-top: 10pt;
-}
-
-.theme-row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
 .column {
   float: left;
   width: 50%;
@@ -90,20 +74,21 @@ iframe {
 .viewer{
   --scroll-track: #819DAC;
   --scroll-thumb: #456A88;
+  opacity: 1;
 }
 
   /* width */
-  .viewer::-webkit-scrollbar {
+  ::-webkit-scrollbar {
     width: 10px;
   }
   
   /* Track */
-  .viewer::-webkit-scrollbar-track {
+  ::-webkit-scrollbar-track {
     background: var(--scroll-track);
   }
   
   /* Handle */
-  .viewer::-webkit-scrollbar-thumb {
+  ::-webkit-scrollbar-thumb {
     background: var(--scroll-thumb);
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
