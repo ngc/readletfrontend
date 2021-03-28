@@ -15,6 +15,7 @@ class App extends Component{
     super(props)
     this.state = {
       theme: {'name': 'mint', 'foreground': '#B9D9EB', 'background': '#253746'},
+      pageData: {},
       themes: [ 
       {'name': 'mint', 'foreground': '#B9D9EB', 'background': '#253746'}, 
       {'name': 'rasin', 'foreground': '#b88c8d', 'background': '#291F24'}, 
@@ -49,6 +50,15 @@ class App extends Component{
     };
   }
 
+  componentDidMount() {
+    if(window.location.pathname.substr(0, 7) === '/pages/'){
+      const pageName = window.location.pathname.substr(7, window.location.pathname.length - 1);
+
+      fetch("http://127.0.0.1:8000/pages/" + pageName).then(response => response.json())
+      .then(data => this.setState({ pageData: data }))
+    }
+  }
+
   async setModalIsOpen(input){
     this.setState({modalIsOpen: input});
   }
@@ -62,6 +72,9 @@ class App extends Component{
     const scrollThumb = this.adjust(theme.background, 30);
     const scrollTrack = this.adjust(theme.foreground, -30);
 
+    try{
+
+    }catch(err){
     document.getElementsByClassName("viewer")[0].style.setProperty(
       '--scroll-thumb', scrollThumb);
       document.getElementsByClassName("viewer")[0].style.setProperty(
@@ -71,6 +84,7 @@ class App extends Component{
       '--scroll-thumb', scrollThumb);
     document.getElementsByClassName("viewer")[1].style.setProperty(
       '--scroll-track', scrollTrack);
+    }
   }
 
   render(){
@@ -84,6 +98,85 @@ class App extends Component{
         temp.push(<div className="theme-column"><ThemeButton state={value} onClick={() => this.changeTheme(value)}/></div>)
       }
       themesButtons.push(<div className="theme-row">{temp[0]}{temp[1]}{temp[2]}{temp[3]}</div>);
+    }
+
+
+    if(window.location.pathname.substr(0, 7) === '/pages/'){
+      /////////////////////////////////////////
+      return (
+        <div className="App">
+          <Modal style={{
+      overlay: {
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundColor: "transparent",
+      },
+      content: {
+        position: 'absolute',
+        top: '15%',
+        left: '29%',
+        right: '29%',
+        bottom: '30%',
+        border: 'none',
+        background: this.adjust(this.state.theme.background, -10),
+        overflow: 'auto',
+        WebkitOverflowScrolling: 'touch',
+        borderRadius: '4px',
+        outline: 'none',
+        padding: 'none',
+        borderRadius: 10,
+        WebkitBorderRadius: 20,
+        MozBorderRadius: 10,
+      }
+    }}
+    isOpen={this.state.modalIsOpen} onRequestClose={() => this.setModalIsOpen(false)}>
+            
+            <center><span 
+            style = {{
+              color: this.state.theme.foreground,
+              textAlign: "center",
+              width: 100,
+            }}
+            className="modalTitle">themes</span></center>
+            {themesButtons}
+          </Modal>
+
+          <span 
+          style={{
+            color: this.state.theme.foreground,
+          }}
+          className="appTitle">{this.state.pageData.name}</span>
+          <p 
+          style={{
+            color: this.state.theme.foreground,
+          }}
+        className="appSubtitle">theme: {this.state.theme.name}</p>
+        
+
+        <section 
+              style={{
+                background: this.state.theme.foreground,
+              }}
+            className="readerFrame viewer" dangerouslySetInnerHTML={{__html: this.state.pageData.content_HTML}}></section>
+
+        
+        <div className="footer">
+          <span
+            style={{
+              color: this.state.theme.foreground,
+            }}
+          >
+            <a onClick={() => this.setModalIsOpen(true)}>themes</a> | <a>login</a> | <a>register</a> | <a>markdown guide</a>
+          </span>
+        </div>
+  
+        </div>
+      );
+      ////////////////////
+
     }
 
     //return app render

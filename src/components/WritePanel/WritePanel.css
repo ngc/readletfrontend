@@ -29,6 +29,21 @@
     overflow-wrap: break-word;
   }
 
+  .readerFrame{
+    margin: auto;
+    align-content: unset;
+    background: #B9D9EB;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    width: 40%;
+    height: 100%;
+    overflow:auto;
+    border: none;
+    text-align: left;
+    overflow-wrap: break-word;
+  }
+
   .writePanel{
     font-size: 20px;
     height: 98%;

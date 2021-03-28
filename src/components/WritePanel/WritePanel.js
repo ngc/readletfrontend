@@ -35,12 +35,12 @@ class WritePanel extends Component{
         if(document.getElementById("upload-text").innerHTML === "uploaded!"){
           return;
         }
+        var name = prompt("Page Name", "");
+        if(name === null || name === ""){
+          return;
+        }
 
         const content_HTML = this.getMarkdownText(content);
-        var name = null;
-        while(name === null || name === ""){
-          name = prompt("Page Name", "");
-        }
         
         const POST_body = {
           "name": name,
