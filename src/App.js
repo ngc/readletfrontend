@@ -19,12 +19,10 @@ class App extends Component{
       {'name': 'rasin', 'foreground': '#b88c8d', 'background': '#291F24'}, 
       {'name': 'honey', 'foreground': '#E69F53', 'background': '#A65317'}, 
       {'name': 'prussian', 'foreground': '#a1b4ff', 'background': '#093252'},
-
       {'name': 'fortress', 'foreground': '#D63E48', 'background': '#154C9E'}, 
       {'name': 'packer', 'foreground': '#BEA6F7', 'background': '#6A3BD9'}, 
       {'name': 'sapphyre', 'foreground': '#59C0F0', 'background': '#1E4D63'}, 
       {'name': 'eastwood', 'foreground': '#8EA0CC', 'background': '#151D30'}, 
-
       {'name': 'kinetic', 'foreground': '#FEB5AE', 'background': '#A3261A'}, 
       {'name': 'darq', 'foreground': '#D6D6D6', 'background': '#1F1F1F'}, 
       {'name': 'gruvbox', 'foreground': '#d79921', 'background': '#282828'},
@@ -38,7 +36,7 @@ class App extends Component{
       {'name': 'yotsuba', 'foreground': '#bb7771', 'background': '#ffffee'},
       {'name': 'tankobon', 'foreground': '#eef2ff', 'background': '#939ac2'},
       {'name': 'sienna', 'foreground': '#bd716d', 'background': '#3B0D11'},
-      {'name': 'platnium', 'foreground': '#E9ECEC', 'background': '#171A21'},
+      {'name': 'platinum', 'foreground': '#E9ECEC', 'background': '#171A21'},
       {'name': 'murdoch', 'foreground': '#4BB3FD', 'background': '#111318'},
       {'name': 'unbleached', 'foreground': '#FFD6C2', 'background': '#2D252A'},
       {'name': 'metric', 'foreground': '#A387FF', 'background': '#4F34A8'},
@@ -52,15 +50,6 @@ class App extends Component{
 
   async setModalIsOpen(input){
     this.setState({modalIsOpen: input});
-    if(input){
-      document.getElementsByClassName("footer")[0].style.display = "none";
-      document.getElementsByClassName("footer")[0].style.opacity = "0";
-    }
-    await new Promise(r => setTimeout(r, 1250));
-    document.getElementsByClassName("footer")[0].style.display = "block";
-    if(input === false){
-      document.getElementsByClassName("footer")[0].style.opacity = "1";
-    }
   }
 
   changeTheme(theme){
@@ -99,7 +88,7 @@ class App extends Component{
     //return app render
     return (
       <div className="App">
-        <Modal   style={{
+        <Modal style={{
     overlay: {
       position: 'fixed',
       top: 0,

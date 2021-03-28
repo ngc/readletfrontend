@@ -1,10 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&family=Source+Sans+Pro:wght@300&display=swap');
 html,body { height:90%; }
 
+*{
+  transition: 1s ease-in;
+}
+
 body {
   background-color: #253746;
   text-align: center;  
   font-family: 'Source Sans Pro', sans-serif;
+  transition: 0.25s linear;
 }
 
 .App{
@@ -70,8 +75,8 @@ iframe {
   right: 0;
   bottom: 0;
   left: 0;
+  transition: 0.671s;
   opacity:1;
-  transition:opacity 1s linear !important;
   padding: 1rem;
   text-align: center;
   display: auto;
@@ -105,6 +110,7 @@ iframe {
     border-radius: 10px;
   }
 
+  /*
   #root {
     transition: 1s filter linear;
     -webkit-transition: 1s -webkit-filter linear;
@@ -120,4 +126,4 @@ iframe {
 
   body.ReactModal__Body--before-close > #root {
     filter: none;
-  }
+  }*/
