@@ -54,7 +54,7 @@ class App extends Component{
     if(window.location.pathname.substr(0, 7) === '/pages/'){
       const pageName = window.location.pathname.substr(7, window.location.pathname.length - 1);
 
-      fetch("http://127.0.0.1:8000/pages/" + pageName).then(response => response.json())
+      fetch("https://api.nathancoulas.com/pages/" + pageName).then(response => response.json())
       .then(data => this.setState({ pageData: data }))
     }
   }
@@ -73,18 +73,23 @@ class App extends Component{
     const scrollTrack = this.adjust(theme.foreground, -30);
 
     try{
-
-    }catch(err){
-    document.getElementsByClassName("viewer")[0].style.setProperty(
-      '--scroll-thumb', scrollThumb);
       document.getElementsByClassName("viewer")[0].style.setProperty(
+        '--scroll-thumb', scrollThumb);
+        document.getElementsByClassName("viewer")[0].style.setProperty(
+          '--scroll-track', scrollTrack);
+  
+      document.getElementsByClassName("viewer")[1].style.setProperty(
+        '--scroll-thumb', scrollThumb);
+      document.getElementsByClassName("viewer")[1].style.setProperty(
         '--scroll-track', scrollTrack);
+    }catch(err){
 
-    document.getElementsByClassName("viewer")[1].style.setProperty(
-      '--scroll-thumb', scrollThumb);
-    document.getElementsByClassName("viewer")[1].style.setProperty(
-      '--scroll-track', scrollTrack);
     }
+  }
+
+  gotoMarkdown(){
+    window.location.replace('https://www.markdownguide.org/');
+    return;
   }
 
   render(){
@@ -169,7 +174,7 @@ class App extends Component{
               color: this.state.theme.foreground,
             }}
           >
-            <a onClick={() => this.setModalIsOpen(true)}>themes</a> | <a>login</a> | <a>register</a> | <a>markdown guide</a>
+            <a onClick={() => this.setModalIsOpen(true)}>themes</a>
           </span>
         </div>
   
@@ -239,7 +244,7 @@ class App extends Component{
             color: this.state.theme.foreground,
           }}
         >
-          <a onClick={() => this.setModalIsOpen(true)}>themes</a> | <a>login</a> | <a>register</a> | <a>markdown guide</a>
+          <a onClick={() => this.setModalIsOpen(true)}>themes</a> | <a onClick={() => this.gotoMarkdown()}>markdown guide</a>
         </span>
       </div>
 

@@ -54,7 +54,7 @@ class WritePanel extends Component{
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(POST_body)
         };
-        fetch('http://127.0.0.1:8000/pages/', requestOptions)
+        fetch('https://api.nathancoulas.com/pages/', requestOptions)
             .then(response => response.json())
             .then(data => this.setState({ postId: data.id }));
 
