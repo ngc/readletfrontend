@@ -44,7 +44,6 @@ class WritePanel extends Component{
             type="text" value={this.state.value} onChange={this.handleChange}/>
           </div>
           <div className="column">       
-            {/*<iframe className="readFrame" srcDoc={this.rendered.value} title="read" id="readPanel" width="93%" height="100%"></iframe>*/}
             <section 
               style={{
                 background: this.state.theme.foreground,
